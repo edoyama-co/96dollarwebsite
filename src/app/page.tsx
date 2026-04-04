@@ -444,18 +444,18 @@ export default function Home() {
             for&quot;?
           </p>
 
-          <div className="relative rounded-2xl bg-background border border-foreground/10 p-8 md:p-10 md:px-16">
+          <div className="relative rounded-2xl bg-background border border-foreground/10 p-8 md:p-10 md:px-12">
             {/* Donnie mascot - overlapping left */}
-            <div className="hidden md:flex flex-col items-center absolute -left-12 top-1/2 -translate-y-1/2 z-10">
-              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-40 h-40 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
-              <p className="text-xs text-muted mt-1 font-bold">Donnie</p>
+            <div className="hidden md:flex flex-col items-center absolute -left-20 top-1/2 -translate-y-1/2 z-10">
+              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-48 h-48 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
+              <p className="text-sm text-muted mt-1 font-bold">Donnie</p>
             </div>
 
             {/* Ed mascot - overlapping right */}
-            <div className="hidden md:flex flex-col items-center absolute -right-12 top-1/2 -translate-y-1/2 z-10">
-              <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-40 h-40 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
-              <p className="text-xs text-muted mt-1 font-bold">Ed</p>
-              <p className="text-[9px] text-muted/60">(people stuff)</p>
+            <div className="hidden md:flex flex-col items-center absolute -right-20 top-1/2 -translate-y-1/2 z-10">
+              <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-48 h-48 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
+              <p className="text-sm text-muted mt-1 font-bold">Ed</p>
+              <p className="text-[10px] text-muted/60">(people stuff)</p>
             </div>
 
             <div className="flex-1">
