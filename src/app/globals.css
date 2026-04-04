@@ -34,27 +34,29 @@ body {
   100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
 }
 
+/* 11 o'clock angle: tilted upper-left */
 @keyframes drift-left {
-  0% { transform: rotate(-6deg) translate(4px, -4px); }
-  50% { transform: rotate(-8deg) translate(-6px, -14px); }
-  100% { transform: rotate(-6deg) translate(4px, -4px); }
+  0% { transform: rotate(-12deg) translate(-8px, -16px); }
+  50% { transform: rotate(-15deg) translate(-14px, -24px); }
+  100% { transform: rotate(-12deg) translate(-8px, -16px); }
 }
 
+/* 1 o'clock angle: tilted upper-right */
 @keyframes drift-right {
-  0% { transform: rotate(6deg) translate(-4px, -4px); }
-  50% { transform: rotate(8deg) translate(6px, -14px); }
-  100% { transform: rotate(6deg) translate(-4px, -4px); }
+  0% { transform: rotate(12deg) translate(8px, -16px); }
+  50% { transform: rotate(15deg) translate(14px, -24px); }
+  100% { transform: rotate(12deg) translate(8px, -16px); }
 }
 
 .animate-drift-left {
   animation: drift-left 6s ease-in-out infinite;
-  transform: rotate(-6deg) translate(4px, -4px);
+  transform: rotate(-12deg) translate(-8px, -16px);
 }
 
 .animate-drift-right {
   animation: drift-right 6s ease-in-out infinite;
   animation-delay: 1s;
-  transform: rotate(6deg) translate(-4px, -4px);
+  transform: rotate(12deg) translate(8px, -16px);
 }
 
 @keyframes hyperspace {

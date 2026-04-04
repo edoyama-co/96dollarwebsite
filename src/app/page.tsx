@@ -221,11 +221,11 @@ export default function Home() {
 
       {/* The Math - Visual Comparison */}
       <section className="relative px-6 py-20 md:py-32 bg-foreground text-background overflow-hidden">
-        {/* Hyperspace starfield */}
+        {/* Hyperspace starfield - fills entire section */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 80 }).map((_, i) => {
-            const angle = (i / 80) * Math.PI * 2;
-            const startDist = 20 + Math.random() * 30;
+          {Array.from({ length: 120 }).map((_, i) => {
+            const angle = Math.random() * Math.PI * 2;
+            const startDist = 10 + Math.random() * 60;
             const x = Math.cos(angle) * startDist;
             const y = Math.sin(angle) * startDist;
             return (
@@ -233,10 +233,12 @@ export default function Home() {
                 key={i}
                 className="star"
                 style={{
+                  left: `${30 + Math.random() * 40}%`,
+                  top: `${20 + Math.random() * 60}%`,
                   ["--star-x" as string]: `${x}px`,
                   ["--star-y" as string]: `${y}px`,
-                  ["--star-speed" as string]: `${Math.random() * 3 + 2}s`,
-                  ["--star-delay" as string]: `${Math.random() * 5}s`,
+                  ["--star-speed" as string]: `${Math.random() * 3 + 1.5}s`,
+                  ["--star-delay" as string]: `${Math.random() * 4}s`,
                 }}
               />
             );
