@@ -221,22 +221,26 @@ export default function Home() {
 
       {/* The Math - Visual Comparison */}
       <section className="relative px-6 py-20 md:py-32 bg-foreground text-background overflow-hidden">
-        {/* Starfield background */}
-        <div className="absolute inset-0 pointer-events-none">
-          {Array.from({ length: 60 }).map((_, i) => (
-            <div
-              key={i}
-              className="star"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 2 + 1}px`,
-                height: `${Math.random() * 2 + 1}px`,
-                ["--twinkle-duration" as string]: `${Math.random() * 4 + 2}s`,
-                ["--twinkle-delay" as string]: `${Math.random() * 5}s`,
-              }}
-            />
-          ))}
+        {/* Hyperspace starfield */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {Array.from({ length: 80 }).map((_, i) => {
+            const angle = (i / 80) * Math.PI * 2;
+            const startDist = 20 + Math.random() * 30;
+            const x = Math.cos(angle) * startDist;
+            const y = Math.sin(angle) * startDist;
+            return (
+              <div
+                key={i}
+                className="star"
+                style={{
+                  ["--star-x" as string]: `${x}px`,
+                  ["--star-y" as string]: `${y}px`,
+                  ["--star-speed" as string]: `${Math.random() * 3 + 2}s`,
+                  ["--star-delay" as string]: `${Math.random() * 5}s`,
+                }}
+              />
+            );
+          })}
         </div>
         <div className="relative max-w-5xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-16">
