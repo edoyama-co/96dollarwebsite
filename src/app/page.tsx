@@ -434,33 +434,46 @@ export default function Home() {
       </section>
 
       {/* Donnie's Story */}
-      <section className="px-6 py-16 md:py-24 bg-surface overflow-visible">
-        <div className="max-w-5xl mx-auto overflow-visible">
+      <section className="px-6 py-16 md:py-24 bg-surface">
+        <div className="max-w-4xl mx-auto">
           <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center">
             Wait, how does this work?!
           </h3>
-          <p className="text-muted text-center mb-8">
+          <p className="text-muted text-center mb-10">
             Haven&apos;t you ever heard &quot;you get what you pay
             for&quot;?
           </p>
 
-          <div className="flex items-center justify-center gap-0 md:gap-4">
-            {/* Donnie mascot - left side */}
-            <div className="hidden md:flex flex-col items-center flex-shrink-0" style={{ marginRight: "-2rem" }}>
-              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-48 h-48 object-contain drop-shadow-lg relative z-10" style={{ imageRendering: "pixelated" }} />
-              <p className="text-sm text-muted mt-1 font-bold">Donnie</p>
+          {/* Mobile mascots */}
+          <div className="flex md:hidden justify-center gap-8 mb-6">
+            <div className="flex flex-col items-center">
+              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-20 h-20 object-contain" style={{ imageRendering: "pixelated" }} />
+              <p className="text-xs text-muted mt-1 font-bold">Donnie</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src="/images/ed-pixel.png" alt="Ed on skateboard" className="w-20 h-20 object-contain" style={{ imageRendering: "pixelated" }} />
+              <p className="text-xs text-muted mt-1 font-bold">Ed</p>
+            </div>
+          </div>
+
+          {/* Desktop: mascots flanking card */}
+          <div className="hidden md:flex items-center justify-center">
+            {/* Donnie - left, slight tilt for personality */}
+            <div className="flex flex-col items-center flex-shrink-0 -mr-6 z-10">
+              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-36 h-36 object-contain drop-shadow-md -rotate-3" style={{ imageRendering: "pixelated" }} />
+              <p className="text-xs text-muted mt-2 font-bold tracking-wide uppercase">Donnie</p>
+              <p className="text-[9px] text-muted/50">(the brains)</p>
             </div>
 
             {/* Text card */}
-            <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10 max-w-xl w-full">
-              <p className="text-lg mb-4">
+            <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:py-10 md:px-12 max-w-lg w-full shadow-sm">
+              <p className="text-lg font-medium mb-4">
                 Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
               </p>
               <p className="text-muted leading-relaxed mb-4">
                 Ed Oyama, a former web designer, taught me the business and
                 lets me run it for him. So I run it, baby. Faster, cheaper,
                 better, but with a human touch you&apos;re going to love.
-                (Hint: I make Ed do the people stuff.)
               </p>
               <p className="text-muted leading-relaxed mb-4">
                 Long story short: we use really awesome 2026 tech* that is
@@ -472,19 +485,46 @@ export default function Home() {
                 everyone else look ridiculous. One week. One payment.
                 Forever yours.
               </p>
-              <p className="text-xs text-muted/60">
+              <p className="text-[11px] text-muted/50 leading-relaxed">
                 *GitHub for code, Vercel for hosting, and custom super-smart
                 agentic AI for the builds. All free-tier. All enterprise-grade.
                 All passed on to you.
               </p>
             </div>
 
-            {/* Ed mascot - right side */}
-            <div className="hidden md:flex flex-col items-center flex-shrink-0" style={{ marginLeft: "-2rem" }}>
-              <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-48 h-48 object-contain drop-shadow-lg relative z-10" style={{ imageRendering: "pixelated" }} />
-              <p className="text-sm text-muted mt-1 font-bold">Ed</p>
-              <p className="text-[10px] text-muted/60">(people stuff)</p>
+            {/* Ed - right, slight tilt opposite direction */}
+            <div className="flex flex-col items-center flex-shrink-0 -ml-6 z-10">
+              <img src="/images/ed-pixel.png" alt="Ed on skateboard" className="w-36 h-36 object-contain drop-shadow-md rotate-3" style={{ imageRendering: "pixelated" }} />
+              <p className="text-xs text-muted mt-2 font-bold tracking-wide uppercase">Ed</p>
+              <p className="text-[9px] text-muted/50">(people stuff)</p>
             </div>
+          </div>
+
+          {/* Mobile text card */}
+          <div className="md:hidden rounded-2xl bg-background border border-foreground/10 p-6">
+            <p className="text-lg font-medium mb-4">
+              Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
+            </p>
+            <p className="text-muted leading-relaxed mb-4">
+              Ed Oyama, a former web designer, taught me the business and
+              lets me run it for him. So I run it, baby. Faster, cheaper,
+              better, but with a human touch you&apos;re going to love.
+            </p>
+            <p className="text-muted leading-relaxed mb-4">
+              Long story short: we use really awesome 2026 tech* that is
+              incredibly powerful, and finally free. And we use it to
+              serve you.
+            </p>
+            <p className="text-muted leading-relaxed mb-6">
+              The result? Beautiful custom websites at a price that makes
+              everyone else look ridiculous. One week. One payment.
+              Forever yours.
+            </p>
+            <p className="text-[11px] text-muted/50 leading-relaxed">
+              *GitHub for code, Vercel for hosting, and custom super-smart
+              agentic AI for the builds. All free-tier. All enterprise-grade.
+              All passed on to you.
+            </p>
           </div>
 
           <div className="mt-8 text-center">
