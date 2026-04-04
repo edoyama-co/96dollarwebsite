@@ -434,8 +434,8 @@ export default function Home() {
       </section>
 
       {/* Donnie's Story */}
-      <section className="px-6 py-16 md:py-24 bg-surface">
-        <div className="max-w-2xl mx-auto">
+      <section className="px-6 py-16 md:py-24 bg-surface overflow-visible">
+        <div className="max-w-2xl mx-auto overflow-visible">
           <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center">
             Wait, how does this work?!
           </h3>
@@ -444,47 +444,45 @@ export default function Home() {
             for&quot;?
           </p>
 
-          <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10">
-            <div className="flex items-start gap-6">
-              {/* Donnie mascot */}
-              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-24">
-                <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-24 h-24 object-contain" style={{ imageRendering: "pixelated" }} />
-                <p className="text-[10px] text-muted mt-1 font-bold">Donnie</p>
-              </div>
+          <div className="relative rounded-2xl bg-background border border-foreground/10 p-8 md:p-10 md:px-16">
+            {/* Donnie mascot - overlapping left */}
+            <div className="hidden md:flex flex-col items-center absolute -left-12 top-1/2 -translate-y-1/2 z-10">
+              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-40 h-40 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
+              <p className="text-xs text-muted mt-1 font-bold">Donnie</p>
+            </div>
 
-              <div className="flex-1">
-            <p className="text-lg mb-4">
-              Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
-            </p>
-            <p className="text-muted leading-relaxed mb-4">
-              Ed Oyama, a former web designer, taught me the business and
-              lets me run it for him. So I run it, baby. Faster, cheaper,
-              better, but with a human touch you&apos;re going to love.
-              (Hint: I make Ed do the people stuff.)
-            </p>
-            <p className="text-muted leading-relaxed mb-4">
-              Long story short: we use really awesome 2026 tech* that is
-              incredibly powerful, and finally free. And we use it to
-              serve you.
-            </p>
-            <p className="text-muted leading-relaxed mb-6">
-              The result? Beautiful custom websites at a price that makes
-              everyone else look ridiculous. One week. One payment.
-              Forever yours.
-            </p>
-            <p className="text-xs text-muted/60">
-              *GitHub for code, Vercel for hosting, and custom super-smart
-              agentic AI for the builds. All free-tier. All enterprise-grade.
-              All passed on to you.
-            </p>
-              </div>
+            {/* Ed mascot - overlapping right */}
+            <div className="hidden md:flex flex-col items-center absolute -right-12 top-1/2 -translate-y-1/2 z-10">
+              <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-40 h-40 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
+              <p className="text-xs text-muted mt-1 font-bold">Ed</p>
+              <p className="text-[9px] text-muted/60">(people stuff)</p>
+            </div>
 
-              {/* Ed mascot */}
-              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-24">
-                <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-24 h-24 object-contain" style={{ imageRendering: "pixelated" }} />
-                <p className="text-[10px] text-muted mt-1 font-bold">Ed</p>
-                <p className="text-[8px] text-muted/60">(people stuff)</p>
-              </div>
+            <div className="flex-1">
+              <p className="text-lg mb-4">
+                Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
+              </p>
+              <p className="text-muted leading-relaxed mb-4">
+                Ed Oyama, a former web designer, taught me the business and
+                lets me run it for him. So I run it, baby. Faster, cheaper,
+                better, but with a human touch you&apos;re going to love.
+                (Hint: I make Ed do the people stuff.)
+              </p>
+              <p className="text-muted leading-relaxed mb-4">
+                Long story short: we use really awesome 2026 tech* that is
+                incredibly powerful, and finally free. And we use it to
+                serve you.
+              </p>
+              <p className="text-muted leading-relaxed mb-6">
+                The result? Beautiful custom websites at a price that makes
+                everyone else look ridiculous. One week. One payment.
+                Forever yours.
+              </p>
+              <p className="text-xs text-muted/60">
+                *GitHub for code, Vercel for hosting, and custom super-smart
+                agentic AI for the builds. All free-tier. All enterprise-grade.
+                All passed on to you.
+              </p>
             </div>
           </div>
 
