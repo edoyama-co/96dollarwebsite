@@ -256,11 +256,8 @@ export default function Home() {
               <ul className="text-sm text-white/50 space-y-2">
                 <li>Wait 4-8 weeks</li>
                 <li>Pay $3K+ for a 5-page site</li>
-                <li>Then $20-60/mo for hosting</li>
+                <li>Then $240-720/yr for hosting</li>
                 <li>Then $150/hr for every change</li>
-                <li className="text-yellow-400/80">
-                  3-year cost: $3,720 - $5,160
-                </li>
               </ul>
             </div>
 
@@ -278,8 +275,8 @@ export default function Home() {
                 <li className="text-white/80">Live in one week</li>
                 <li className="text-white/80">Free hosting forever</li>
                 <li className="text-white/80">$19 edits for life</li>
-                <li className="text-primary font-medium">
-                  3-year cost: $96. That&apos;s it.
+                <li className="text-primary font-medium text-lg mt-2">
+                  Annual hosting cost: $0
                 </li>
               </ul>
             </div>
