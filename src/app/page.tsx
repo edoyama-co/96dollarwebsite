@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const faqItems = [
   {
@@ -26,6 +26,10 @@ const faqItems = [
   {
     q: "What if I need changes later?",
     a: "$19 per edit. For life.",
+  },
+  {
+    q: "What if I want a secret link that makes cats appear?",
+    a: 'We got you fam. <button onclick="window.__spawnCats&&window.__spawnCats()" class="text-primary underline hover:no-underline cursor-pointer bg-transparent border-none font-inherit text-inherit p-0">Click here for cats.</button>',
   },
 ];
 
@@ -60,6 +64,58 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [business, setBusiness] = useState("");
+
+  // Cat Easter egg
+  useEffect(() => {
+    const catEmojis = ["🐱", "😺", "😸", "😻", "🙀", "😹", "😽", "🐈", "🐈‍⬛"];
+    let catCount = 0;
+
+    function spawnCat() {
+      if (catCount > 30) return;
+      catCount++;
+      const cat = document.createElement("div");
+      cat.textContent = catEmojis[Math.floor(Math.random() * catEmojis.length)];
+      cat.style.cssText = `
+        position: fixed;
+        left: ${Math.random() * 90}vw;
+        top: ${Math.random() * 90}vh;
+        font-size: ${Math.random() * 40 + 24}px;
+        z-index: 9999;
+        pointer-events: none;
+        animation: catPop 2s ease-out forwards;
+        opacity: 0;
+      `;
+      document.body.appendChild(cat);
+      setTimeout(() => cat.remove(), 2000);
+    }
+
+    // Add the catPop animation
+    if (!document.getElementById("cat-styles")) {
+      const style = document.createElement("style");
+      style.id = "cat-styles";
+      style.textContent = `
+        @keyframes catPop {
+          0% { opacity: 0; transform: scale(0) rotate(0deg); }
+          30% { opacity: 1; transform: scale(1.3) rotate(10deg); }
+          60% { opacity: 1; transform: scale(1) rotate(-5deg); }
+          100% { opacity: 0; transform: scale(0.8) rotate(15deg) translateY(-30px); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    (window as unknown as Record<string, unknown>).__spawnCats = () => {
+      catCount = 0;
+      // Spawn 15 cats over 3 seconds
+      for (let i = 0; i < 15; i++) {
+        setTimeout(spawnCat, i * 200);
+      }
+    };
+
+    return () => {
+      delete (window as unknown as Record<string, unknown>).__spawnCats;
+    };
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -134,8 +190,9 @@ export default function Home() {
           </h2>
 
           <p className="text-lg md:text-xl text-muted max-w-xl mx-auto mb-4">
-            One-time payment. No monthly fees. No hosting costs. You own
-            everything.
+            One-time payment. No monthly fees. No hosting costs.
+            <br />
+            You own everything.
           </p>
           <p className="text-sm text-primary font-medium mb-10">
             BONUS: Sign up before we launch and get a 3-page custom site instead of a 1-pager!
@@ -391,16 +448,33 @@ export default function Home() {
 
           <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10">
             <div className="flex items-start gap-6">
-              {/* Pixel Donnie - turtle on laptop */}
-              <div className="hidden md:flex flex-col items-center flex-shrink-0">
-                <div className="text-5xl mb-1">🐢</div>
-                <div className="w-12 h-8 bg-gray-300 rounded-t-sm relative">
-                  <div className="absolute inset-1 bg-blue-400 rounded-sm flex items-center justify-center">
-                    <span className="text-[6px] text-white font-bold">&lt;/&gt;</span>
+              {/* Pixel Donnie - blocky turtle */}
+              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-20">
+                <div className="relative w-16 h-16">
+                  {/* Shell */}
+                  <div className="absolute top-1 left-2 w-12 h-10 bg-green-600 rounded-lg" />
+                  <div className="absolute top-2 left-3 w-10 h-8 bg-green-500 rounded" />
+                  {/* Shell pattern */}
+                  <div className="absolute top-3 left-4 w-3 h-3 bg-green-700 rounded-sm" />
+                  <div className="absolute top-3 left-8 w-3 h-3 bg-green-700 rounded-sm" />
+                  <div className="absolute top-6 left-5 w-4 h-2 bg-green-700 rounded-sm" />
+                  {/* Head */}
+                  <div className="absolute top-3 left-[-2px] w-4 h-5 bg-green-400 rounded-l-lg" />
+                  {/* Eyes */}
+                  <div className="absolute top-4 left-0 w-1.5 h-1.5 bg-white rounded-full" />
+                  <div className="absolute top-[17px] left-[-1px] w-1 h-1 bg-black rounded-full" />
+                  {/* Feet */}
+                  <div className="absolute bottom-0 left-3 w-3 h-2 bg-green-400 rounded-b" />
+                  <div className="absolute bottom-0 right-3 w-3 h-2 bg-green-400 rounded-b" />
+                </div>
+                {/* Laptop */}
+                <div className="w-12 h-7 bg-gray-300 rounded-t-sm relative -mt-1">
+                  <div className="absolute inset-[3px] bg-blue-500 rounded-sm flex items-center justify-center">
+                    <span className="text-[5px] text-white font-bold">&lt;/&gt;</span>
                   </div>
                 </div>
                 <div className="w-14 h-1 bg-gray-400 rounded-b" />
-                <p className="text-[10px] text-muted mt-1">Donnie</p>
+                <p className="text-[10px] text-muted mt-1 font-bold">Donnie</p>
               </div>
 
               <div className="flex-1">
@@ -430,12 +504,27 @@ export default function Home() {
             </p>
               </div>
 
-              {/* Pixel Ed - the people guy */}
-              <div className="hidden md:flex flex-col items-center flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-2xl mb-1">
-                  👨
+              {/* Pixel Ed - blocky person */}
+              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-20">
+                <div className="relative w-14 h-16">
+                  {/* Hair */}
+                  <div className="absolute top-0 left-3 w-8 h-3 bg-gray-900 rounded-t-lg" />
+                  {/* Head */}
+                  <div className="absolute top-2 left-3 w-8 h-7 bg-amber-700 rounded" />
+                  {/* Eyes */}
+                  <div className="absolute top-4 left-4 w-1.5 h-1.5 bg-white rounded-full" />
+                  <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-white rounded-full" />
+                  <div className="absolute top-[17px] left-[17px] w-1 h-1 bg-black rounded-full" />
+                  <div className="absolute top-[17px] right-[17px] w-1 h-1 bg-black rounded-full" />
+                  {/* Smile */}
+                  <div className="absolute top-[22px] left-5 w-4 h-1 bg-white rounded-b" />
+                  {/* Body */}
+                  <div className="absolute top-9 left-2 w-10 h-7 bg-primary rounded-t" />
+                  {/* Arms */}
+                  <div className="absolute top-10 left-[-1px] w-3 h-4 bg-primary rounded-l" />
+                  <div className="absolute top-10 right-[-1px] w-3 h-4 bg-primary rounded-r" />
                 </div>
-                <p className="text-[10px] text-muted">Ed</p>
+                <p className="text-[10px] text-muted mt-1 font-bold">Ed</p>
                 <p className="text-[8px] text-muted/60">(people stuff)</p>
               </div>
             </div>
