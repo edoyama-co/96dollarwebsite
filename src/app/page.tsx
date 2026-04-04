@@ -1,65 +1,249 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+
+const faqItems = [
+  {
+    q: "What kind of sites?",
+    a: "Personal brands, service businesses, portfolios. Not e-commerce. We're not building Death Stars. We're building one-page websites.",
+  },
+  {
+    q: "What about hosting fees?",
+    a: "There are none. Ever. You own your site. We set you up on sophisticated but free-forever platforms that you'll never need to pay for.",
+  },
+  {
+    q: "How long does it take?",
+    a: "One week from intake to launch.",
+  },
+  {
+    q: "What if I already have a site?",
+    a: "We can clone it and kill your hosting bill. That starts at $396.",
+  },
+  {
+    q: "What's included?",
+    a: "Your page, a terms of service page, a privacy policy page, and a contact form. All yours. Forever.",
+  },
+  {
+    q: "What if I need changes later?",
+    a: "$19 per edit. For life.",
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-foreground/10">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between py-5 text-left text-lg font-medium hover:text-primary transition-colors cursor-pointer"
+      >
+        {q}
+        <span
+          className={`ml-4 text-2xl transition-transform duration-200 ${open ? "rotate-45" : ""}`}
+        >
+          +
+        </span>
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${open ? "max-h-40 pb-5" : "max-h-0"}`}
+      >
+        <p className="text-muted leading-relaxed">{a}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
+  const [formState, setFormState] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [business, setBusiness] = useState("");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setFormState("submitting");
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, business }),
+      });
+
+      if (res.ok) {
+        setFormState("success");
+        setName("");
+        setEmail("");
+        setBusiness("");
+      } else {
+        setFormState("error");
+      }
+    } catch {
+      setFormState("error");
+    }
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="flex-1">
+      {/* Hero */}
+      <section className="relative overflow-hidden px-6 pt-20 pb-16 md:pt-32 md:pb-24">
+        {/* Fun background blobs */}
+        <div className="absolute top-[-120px] right-[-80px] w-[400px] h-[400px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-[-100px] left-[-60px] w-[300px] h-[300px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-3xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Launching soon
+          </div>
+
+          {/* Price as hero */}
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-2">
+            <span className="text-primary">$96.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+            One page. Free hosting.{" "}
+            <span className="text-accent">Forever.</span>
+          </h2>
+
+          <p className="text-lg md:text-xl text-muted max-w-xl mx-auto mb-10">
+            Professional websites for small businesses. One-time payment. No
+            monthly fees. No hosting costs. You own everything.
           </p>
+
+          {/* Waitlist Form */}
+          <div className="max-w-md mx-auto">
+            {formState === "success" ? (
+              <div className="rounded-2xl bg-accent/10 border border-accent/20 p-8 text-center">
+                <div className="text-4xl mb-3">🎉</div>
+                <p className="text-xl font-semibold mb-1">You&apos;re in!</p>
+                <p className="text-muted">
+                  We&apos;ll reach out when we&apos;re ready for our first
+                  round.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="w-full rounded-xl border border-foreground/10 bg-surface px-4 py-3.5 text-base placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                />
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full rounded-xl border border-foreground/10 bg-surface px-4 py-3.5 text-base placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                />
+                <input
+                  type="text"
+                  placeholder="What do you do?"
+                  value={business}
+                  onChange={(e) => setBusiness(e.target.value)}
+                  required
+                  className="w-full rounded-xl border border-foreground/10 bg-surface px-4 py-3.5 text-base placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                />
+                <button
+                  type="submit"
+                  disabled={formState === "submitting"}
+                  className="w-full rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 text-base transition-colors disabled:opacity-60 cursor-pointer"
+                >
+                  {formState === "submitting"
+                    ? "Joining..."
+                    : "Join the Waitlist"}
+                </button>
+                {formState === "error" && (
+                  <p className="text-red-500 text-sm text-center">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
+              </form>
+            )}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </section>
+
+      {/* Social proof strip */}
+      <section className="border-y border-foreground/5 bg-surface py-6">
+        <div className="max-w-3xl mx-auto px-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-muted">
+          <span>
+            <strong className="text-foreground">$96</strong> one-page website
+          </span>
+          <span className="hidden sm:inline text-foreground/20">|</span>
+          <span>
+            <strong className="text-foreground">$19</strong> edits for life
+          </span>
+          <span className="hidden sm:inline text-foreground/20">|</span>
+          <span>
+            <strong className="text-foreground">$0</strong> hosting forever
+          </span>
+          <span className="hidden sm:inline text-foreground/20">|</span>
+          <span>
+            <strong className="text-foreground">1 week</strong> to launch
+          </span>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 py-16 md:py-24">
+        <div className="max-w-2xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center">
+            Questions? We got you.
+          </h3>
+          <p className="text-muted text-center mb-10">
+            The short version: it&apos;s exactly what it sounds like.
+          </p>
+          <div>
+            {faqItems.map((item) => (
+              <FAQItem key={item.q} q={item.q} a={item.a} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="px-6 pb-20">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xl md:text-2xl font-semibold mb-2">
+            Stop paying for hosting.
+          </p>
+          <p className="text-muted mb-6">
+            Your website shouldn&apos;t cost more than your lunch. Every month.
+          </p>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background font-semibold px-8 py-3.5 hover:opacity-90 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Join the Waitlist ↑
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-foreground/5 px-6 py-8">
+        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
+          <p>
+            &copy; {new Date().getFullYear()} Edo Design Co. All rights
+            reserved.
+          </p>
+          <p>Built by Donnie 🐢</p>
+        </div>
+      </footer>
+    </main>
   );
 }
