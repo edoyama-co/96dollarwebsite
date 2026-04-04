@@ -435,7 +435,7 @@ export default function Home() {
 
       {/* Donnie's Story */}
       <section className="px-6 py-16 md:py-24 bg-surface overflow-visible">
-        <div className="max-w-2xl mx-auto overflow-visible">
+        <div className="max-w-5xl mx-auto overflow-visible">
           <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center">
             Wait, how does this work?!
           </h3>
@@ -444,21 +444,15 @@ export default function Home() {
             for&quot;?
           </p>
 
-          <div className="relative rounded-2xl bg-background border border-foreground/10 p-8 md:p-10 md:px-12">
-            {/* Donnie mascot - overlapping left */}
-            <div className="hidden md:flex flex-col items-center absolute -left-20 top-1/2 -translate-y-1/2 z-10">
-              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-48 h-48 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
+          <div className="flex items-center justify-center gap-0 md:gap-4">
+            {/* Donnie mascot - left side */}
+            <div className="hidden md:flex flex-col items-center flex-shrink-0" style={{ marginRight: "-2rem" }}>
+              <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-48 h-48 object-contain drop-shadow-lg relative z-10" style={{ imageRendering: "pixelated" }} />
               <p className="text-sm text-muted mt-1 font-bold">Donnie</p>
             </div>
 
-            {/* Ed mascot - overlapping right */}
-            <div className="hidden md:flex flex-col items-center absolute -right-20 top-1/2 -translate-y-1/2 z-10">
-              <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-48 h-48 object-contain drop-shadow-lg" style={{ imageRendering: "pixelated" }} />
-              <p className="text-sm text-muted mt-1 font-bold">Ed</p>
-              <p className="text-[10px] text-muted/60">(people stuff)</p>
-            </div>
-
-            <div className="flex-1">
+            {/* Text card */}
+            <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10 max-w-xl w-full">
               <p className="text-lg mb-4">
                 Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
               </p>
@@ -483,6 +477,13 @@ export default function Home() {
                 agentic AI for the builds. All free-tier. All enterprise-grade.
                 All passed on to you.
               </p>
+            </div>
+
+            {/* Ed mascot - right side */}
+            <div className="hidden md:flex flex-col items-center flex-shrink-0" style={{ marginLeft: "-2rem" }}>
+              <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-48 h-48 object-contain drop-shadow-lg relative z-10" style={{ imageRendering: "pixelated" }} />
+              <p className="text-sm text-muted mt-1 font-bold">Ed</p>
+              <p className="text-[10px] text-muted/60">(people stuff)</p>
             </div>
           </div>
 
