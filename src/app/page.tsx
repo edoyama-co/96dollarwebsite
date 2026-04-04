@@ -5,7 +5,7 @@ import { useState } from "react";
 const faqItems = [
   {
     q: "What kind of sites?",
-    a: "Personal brands, service businesses, portfolios. Not e-commerce. We're not building Death Stars. We're building one-page websites.",
+    a: 'Personal brands, service businesses, portfolios. Not e-commerce. We\'re not building <a href="https://www.youtube.com/watch?v=5roJBI6-R8Q" target="_blank" rel="noopener noreferrer" class="text-primary underline hover:no-underline">Death Stars</a>. We\'re building one-page websites.',
   },
   {
     q: "What about hosting fees?",
@@ -47,7 +47,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       <div
         className={`overflow-hidden transition-all duration-300 ${open ? "max-h-40 pb-5" : "max-h-0"}`}
       >
-        <p className="text-muted leading-relaxed">{a}</p>
+        <p className="text-muted leading-relaxed" dangerouslySetInnerHTML={{ __html: a }} />
       </div>
     </div>
   );
@@ -138,7 +138,7 @@ export default function Home() {
             everything.
           </p>
           <p className="text-sm text-primary font-medium mb-10">
-            Sign up before we launch and get a 3-page custom site instead of 1.
+            BONUS: Sign up before we launch and get a 3-page custom site instead of a 1-pager!
           </p>
 
           {/* Waitlist Form */}
@@ -220,8 +220,25 @@ export default function Home() {
       </section>
 
       {/* The Math - Visual Comparison */}
-      <section className="px-6 py-20 md:py-32 bg-foreground text-background overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="relative px-6 py-20 md:py-32 bg-foreground text-background overflow-hidden">
+        {/* Starfield background */}
+        <div className="absolute inset-0 pointer-events-none">
+          {Array.from({ length: 60 }).map((_, i) => (
+            <div
+              key={i}
+              className="star"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${Math.random() * 2 + 1}px`,
+                height: `${Math.random() * 2 + 1}px`,
+                ["--twinkle-duration" as string]: `${Math.random() * 4 + 2}s`,
+                ["--twinkle-delay" as string]: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
+        <div className="relative max-w-5xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-16">
             In 2026, there&apos;s three ways to get a website.
             <br />
@@ -367,6 +384,20 @@ export default function Home() {
           </p>
 
           <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10">
+            <div className="flex items-start gap-6">
+              {/* Pixel Donnie - turtle on laptop */}
+              <div className="hidden md:flex flex-col items-center flex-shrink-0">
+                <div className="text-5xl mb-1">🐢</div>
+                <div className="w-12 h-8 bg-gray-300 rounded-t-sm relative">
+                  <div className="absolute inset-1 bg-blue-400 rounded-sm flex items-center justify-center">
+                    <span className="text-[6px] text-white font-bold">&lt;/&gt;</span>
+                  </div>
+                </div>
+                <div className="w-14 h-1 bg-gray-400 rounded-b" />
+                <p className="text-[10px] text-muted mt-1">Donnie</p>
+              </div>
+
+              <div className="flex-1">
             <p className="text-lg mb-4">
               Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
             </p>
@@ -391,6 +422,17 @@ export default function Home() {
               agentic AI for the builds. All free-tier. All enterprise-grade.
               All passed on to you.
             </p>
+              </div>
+
+              {/* Pixel Ed - the people guy */}
+              <div className="hidden md:flex flex-col items-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-2xl mb-1">
+                  👨
+                </div>
+                <p className="text-[10px] text-muted">Ed</p>
+                <p className="text-[8px] text-muted/60">(people stuff)</p>
+              </div>
+            </div>
           </div>
 
           <div className="mt-8 text-center">
