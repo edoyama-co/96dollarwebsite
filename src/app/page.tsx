@@ -233,7 +233,7 @@ export default function Home() {
           {/* Visual comparison - 3 cards with CSS website icons */}
           <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4 mb-12">
             {/* DIY - tilted left, drifting */}
-            <div className="md:-rotate-6 md:-translate-y-4 md:translate-x-4 opacity-60 hover:opacity-80 transition-all duration-500 flex-shrink-0">
+            <div className="md:animate-drift-left opacity-60 hover:opacity-80 transition-opacity duration-500 flex-shrink-0">
               {/* CSS Website Icon */}
               <div className="w-48 h-32 mx-auto mb-4 rounded-lg border-2 border-red-400/30 bg-white/5 relative overflow-hidden">
                 <div className="h-4 bg-red-400/20 flex items-center gap-1 px-2">
@@ -316,7 +316,7 @@ export default function Home() {
             </div>
 
             {/* Hire a Designer - tilted right, drifting */}
-            <div className="md:rotate-6 md:-translate-y-4 md:-translate-x-4 opacity-60 hover:opacity-80 transition-all duration-500 flex-shrink-0">
+            <div className="md:animate-drift-right opacity-60 hover:opacity-80 transition-opacity duration-500 flex-shrink-0">
               {/* CSS Website Icon */}
               <div className="w-48 h-32 mx-auto mb-4 rounded-lg border-2 border-yellow-400/30 bg-white/5 relative overflow-hidden">
                 <div className="h-4 bg-yellow-400/20 flex items-center gap-1 px-2">
@@ -372,8 +372,9 @@ export default function Home() {
             </p>
             <p className="text-muted leading-relaxed mb-4">
               Ed Oyama, a former web designer, taught me the business and
-              lets me run it. So I run it. Faster, cheaper, better, but
-              with a human touch you&apos;re going to love.
+              lets me run it for him. So I run it, baby. Faster, cheaper,
+              better, but with a human touch you&apos;re going to love.
+              (Hint: I make Ed do the people stuff.)
             </p>
             <p className="text-muted leading-relaxed mb-4">
               Long story short: we use really awesome 2026 tech* that is
