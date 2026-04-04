@@ -129,13 +129,16 @@ export default function Home() {
             <span className="text-primary">$96.</span>
           </h1>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-            One page. Free hosting.{" "}
-            <span className="text-accent">Forever.</span>
+            Beautiful custom one-page websites.{" "}
+            <span className="text-accent">Free hosting. Forever.</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-muted max-w-xl mx-auto mb-10">
-            Professional websites for small businesses. One-time payment. No
-            monthly fees. No hosting costs. You own everything.
+          <p className="text-lg md:text-xl text-muted max-w-xl mx-auto mb-4">
+            One-time payment. No monthly fees. No hosting costs. You own
+            everything.
+          </p>
+          <p className="text-sm text-primary font-medium mb-10">
+            Sign up before we launch and get a 3-page custom site instead of 1.
           </p>
 
           {/* Waitlist Form */}
@@ -218,33 +221,71 @@ export default function Home() {
 
       {/* The Math */}
       <section className="px-6 py-16 md:py-24 bg-foreground text-background">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-10">
-            Do the math.
+            Three ways to get a website.
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-            <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
-              <p className="text-sm uppercase tracking-wider text-white/50 mb-2">
-                Squarespace
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {/* DIY */}
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-6 text-left">
+              <p className="text-sm uppercase tracking-wider text-white/40 mb-2">
+                Do it yourself
               </p>
-              <p className="text-4xl font-bold text-red-400 mb-1">$828</p>
-              <p className="text-sm text-white/60">
-                $23/mo for 3 years. Same basic site.
+              <p className="text-3xl font-bold text-red-400 mb-3">
+                &quot;Free&quot;
               </p>
+              <ul className="text-sm text-white/50 space-y-2">
+                <li>Watch 47 YouTube tutorials</li>
+                <li>Crash it 68 times</li>
+                <li>Finally give up at 2am</li>
+                <li>Still paying $23/mo for hosting</li>
+                <li className="text-red-400/80">
+                  Cost: your sanity + $276/yr
+                </li>
+              </ul>
             </div>
-            <div className="rounded-2xl bg-white/5 border border-primary/40 p-6 ring-2 ring-primary/20">
+
+            {/* Traditional */}
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-6 text-left">
+              <p className="text-sm uppercase tracking-wider text-white/40 mb-2">
+                Hire a designer
+              </p>
+              <p className="text-3xl font-bold text-yellow-400 mb-3">
+                $3,000+
+              </p>
+              <ul className="text-sm text-white/50 space-y-2">
+                <li>Wait 4-8 weeks</li>
+                <li>Pay $3K+ for a 5-page site</li>
+                <li>Then $20-60/mo for hosting</li>
+                <li>Then $150/hr for every change</li>
+                <li className="text-yellow-400/80">
+                  3-year cost: $3,720 - $5,160
+                </li>
+              </ul>
+            </div>
+
+            {/* Us */}
+            <div className="rounded-2xl bg-white/5 border border-primary/40 p-6 text-left ring-2 ring-primary/20 relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                BEST VALUE
+              </div>
               <p className="text-sm uppercase tracking-wider text-primary mb-2">
                 Us
               </p>
-              <p className="text-4xl font-bold text-primary mb-1">$96</p>
-              <p className="text-sm text-white/60">
-                Once. Forever. You own it.
-              </p>
+              <p className="text-3xl font-bold text-primary mb-3">$96</p>
+              <ul className="text-sm text-white/50 space-y-2">
+                <li className="text-white/80">Custom designed for you</li>
+                <li className="text-white/80">Live in one week</li>
+                <li className="text-white/80">Free hosting forever</li>
+                <li className="text-white/80">$19 edits for life</li>
+                <li className="text-primary font-medium">
+                  3-year cost: $96. That&apos;s it.
+                </li>
+              </ul>
             </div>
           </div>
-          <p className="text-white/50 text-sm">
-            That&apos;s $732 back in your pocket over 3 years. For the same
-            website.
+          <p className="text-white/40 text-sm">
+            Same website. Wildly different price. You do the math.
           </p>
         </div>
       </section>
