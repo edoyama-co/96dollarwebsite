@@ -446,27 +446,9 @@ export default function Home() {
 
           <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10">
             <div className="flex items-start gap-6">
-              {/* Pixel Donnie - hard corners, blocky turtle */}
-              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-20">
-                <div className="relative w-16 h-14" style={{ imageRendering: "pixelated" }}>
-                  {/* Shell */}
-                  <div className="absolute top-0 left-2 w-12 h-10 bg-green-600" />
-                  <div className="absolute top-1 left-3 w-10 h-8 bg-green-500" />
-                  {/* Shell pattern */}
-                  <div className="absolute top-2 left-4 w-3 h-3 bg-green-700" />
-                  <div className="absolute top-2 left-8 w-3 h-3 bg-green-700" />
-                  <div className="absolute top-6 left-5 w-4 h-2 bg-green-700" />
-                  {/* Head */}
-                  <div className="absolute top-2 left-0 w-3 h-5 bg-green-400" />
-                  {/* Eye */}
-                  <div className="absolute top-3 left-0 w-2 h-2 bg-white" />
-                  <div className="absolute top-[14px] left-[2px] w-1 h-1 bg-black" />
-                  {/* Feet */}
-                  <div className="absolute bottom-0 left-3 w-3 h-2 bg-green-400" />
-                  <div className="absolute bottom-0 right-3 w-3 h-2 bg-green-400" />
-                  {/* Tail */}
-                  <div className="absolute top-7 right-0 w-2 h-1 bg-green-400" />
-                </div>
+              {/* Donnie mascot */}
+              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-24">
+                <img src="/images/donnie.png" alt="Donnie the pixel turtle" className="w-24 h-24 object-contain" style={{ imageRendering: "pixelated" }} />
                 <p className="text-[10px] text-muted mt-1 font-bold">Donnie</p>
               </div>
 
@@ -497,29 +479,9 @@ export default function Home() {
             </p>
               </div>
 
-              {/* Pixel Ed - hard corners, blocky person */}
-              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-20">
-                <div className="relative w-14 h-16" style={{ imageRendering: "pixelated" }}>
-                  {/* Hair */}
-                  <div className="absolute top-0 left-3 w-8 h-3 bg-gray-900" />
-                  {/* Head */}
-                  <div className="absolute top-2 left-3 w-8 h-6 bg-amber-700" />
-                  {/* Eyes */}
-                  <div className="absolute top-3 left-4 w-2 h-2 bg-white" />
-                  <div className="absolute top-3 right-4 w-2 h-2 bg-white" />
-                  <div className="absolute top-[14px] left-[18px] w-1 h-1 bg-black" />
-                  <div className="absolute top-[14px] right-[18px] w-1 h-1 bg-black" />
-                  {/* Smile */}
-                  <div className="absolute top-[20px] left-5 w-4 h-1 bg-white" />
-                  {/* Body */}
-                  <div className="absolute top-8 left-2 w-10 h-6 bg-primary" />
-                  {/* Arms */}
-                  <div className="absolute top-9 left-0 w-2 h-4 bg-primary" />
-                  <div className="absolute top-9 right-0 w-2 h-4 bg-primary" />
-                  {/* Legs */}
-                  <div className="absolute bottom-0 left-3 w-3 h-2 bg-gray-700" />
-                  <div className="absolute bottom-0 right-3 w-3 h-2 bg-gray-700" />
-                </div>
+              {/* Ed mascot */}
+              <div className="hidden md:flex flex-col items-center flex-shrink-0 w-24">
+                <img src="/images/ed-pixel.png" alt="Ed pixel art on skateboard" className="w-24 h-24 object-contain" style={{ imageRendering: "pixelated" }} />
                 <p className="text-[10px] text-muted mt-1 font-bold">Ed</p>
                 <p className="text-[8px] text-muted/60">(people stuff)</p>
               </div>
