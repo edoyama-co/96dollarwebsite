@@ -34,44 +34,39 @@ body {
   100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
 }
 
-/* 11 o'clock angle: tilted upper-left */
+/* Card drift: gentle wobble while maintaining base rotation */
 @keyframes drift-left {
-  0% { transform: rotate(-12deg) translate(-8px, -16px); }
-  50% { transform: rotate(-15deg) translate(-14px, -24px); }
-  100% { transform: rotate(-12deg) translate(-8px, -16px); }
+  0%, 100% { transform: rotate(-15deg) translateY(0px); }
+  50% { transform: rotate(-17deg) translateY(-8px); }
 }
 
-/* 1 o'clock angle: tilted upper-right */
 @keyframes drift-right {
-  0% { transform: rotate(12deg) translate(8px, -16px); }
-  50% { transform: rotate(15deg) translate(14px, -24px); }
-  100% { transform: rotate(12deg) translate(8px, -16px); }
+  0%, 100% { transform: rotate(15deg) translateY(0px); }
+  50% { transform: rotate(17deg) translateY(-8px); }
 }
 
 .animate-drift-left {
-  animation: drift-left 6s ease-in-out infinite;
-  transform: rotate(-12deg) translate(-8px, -16px);
+  transform: rotate(-15deg);
+  animation: drift-left 5s ease-in-out infinite;
 }
 
 .animate-drift-right {
-  animation: drift-right 6s ease-in-out infinite;
-  animation-delay: 1s;
-  transform: rotate(12deg) translate(8px, -16px);
+  transform: rotate(15deg);
+  animation: drift-right 5s ease-in-out infinite;
+  animation-delay: 1.5s;
 }
 
+/* Hyperspace: stars fly outward from exact center */
 @keyframes hyperspace {
   0% {
-    transform: translate(var(--star-x), var(--star-y)) scale(0);
+    transform: translate(0, 0) scale(0.5);
     opacity: 0;
   }
-  10% {
+  5% {
     opacity: 1;
   }
   100% {
-    transform: translate(
-      calc(var(--star-x) * 8),
-      calc(var(--star-y) * 8)
-    ) scale(3);
+    transform: translate(var(--dx), var(--dy)) scale(2);
     opacity: 0;
   }
 }
@@ -84,9 +79,8 @@ body {
   height: 2px;
   background: white;
   border-radius: 50%;
-  animation: hyperspace var(--star-speed, 3s) linear infinite;
-  animation-delay: var(--star-delay, 0s);
-  box-shadow: 0 0 2px white;
+  animation: hyperspace var(--speed, 2.5s) linear infinite;
+  animation-delay: var(--delay, 0s);
 }
 
 .animation-delay-1000 { animation-delay: 1s; }

@@ -278,24 +278,22 @@ export default function Home() {
 
       {/* The Math - Visual Comparison */}
       <section className="relative px-6 py-20 md:py-32 bg-foreground text-background overflow-hidden">
-        {/* Hyperspace starfield - fills entire section */}
+        {/* Hyperspace starfield - all from center outward */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 120 }).map((_, i) => {
-            const angle = Math.random() * Math.PI * 2;
-            const startDist = 10 + Math.random() * 60;
-            const x = Math.cos(angle) * startDist;
-            const y = Math.sin(angle) * startDist;
+          {Array.from({ length: 100 }).map((_, i) => {
+            const angle = (i / 100) * Math.PI * 2 + Math.random() * 0.3;
+            const dist = 600 + Math.random() * 400;
+            const dx = Math.cos(angle) * dist;
+            const dy = Math.sin(angle) * dist;
             return (
               <div
                 key={i}
                 className="star"
                 style={{
-                  left: `${30 + Math.random() * 40}%`,
-                  top: `${20 + Math.random() * 60}%`,
-                  ["--star-x" as string]: `${x}px`,
-                  ["--star-y" as string]: `${y}px`,
-                  ["--star-speed" as string]: `${Math.random() * 3 + 1.5}s`,
-                  ["--star-delay" as string]: `${Math.random() * 4}s`,
+                  ["--dx" as string]: `${dx}px`,
+                  ["--dy" as string]: `${dy}px`,
+                  ["--speed" as string]: `${Math.random() * 2 + 1.5}s`,
+                  ["--delay" as string]: `${Math.random() * 3}s`,
                 }}
               />
             );
@@ -448,32 +446,27 @@ export default function Home() {
 
           <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10">
             <div className="flex items-start gap-6">
-              {/* Pixel Donnie - blocky turtle */}
+              {/* Pixel Donnie - hard corners, blocky turtle */}
               <div className="hidden md:flex flex-col items-center flex-shrink-0 w-20">
-                <div className="relative w-16 h-16">
+                <div className="relative w-16 h-14" style={{ imageRendering: "pixelated" }}>
                   {/* Shell */}
-                  <div className="absolute top-1 left-2 w-12 h-10 bg-green-600 rounded-lg" />
-                  <div className="absolute top-2 left-3 w-10 h-8 bg-green-500 rounded" />
+                  <div className="absolute top-0 left-2 w-12 h-10 bg-green-600" />
+                  <div className="absolute top-1 left-3 w-10 h-8 bg-green-500" />
                   {/* Shell pattern */}
-                  <div className="absolute top-3 left-4 w-3 h-3 bg-green-700 rounded-sm" />
-                  <div className="absolute top-3 left-8 w-3 h-3 bg-green-700 rounded-sm" />
-                  <div className="absolute top-6 left-5 w-4 h-2 bg-green-700 rounded-sm" />
+                  <div className="absolute top-2 left-4 w-3 h-3 bg-green-700" />
+                  <div className="absolute top-2 left-8 w-3 h-3 bg-green-700" />
+                  <div className="absolute top-6 left-5 w-4 h-2 bg-green-700" />
                   {/* Head */}
-                  <div className="absolute top-3 left-[-2px] w-4 h-5 bg-green-400 rounded-l-lg" />
-                  {/* Eyes */}
-                  <div className="absolute top-4 left-0 w-1.5 h-1.5 bg-white rounded-full" />
-                  <div className="absolute top-[17px] left-[-1px] w-1 h-1 bg-black rounded-full" />
+                  <div className="absolute top-2 left-0 w-3 h-5 bg-green-400" />
+                  {/* Eye */}
+                  <div className="absolute top-3 left-0 w-2 h-2 bg-white" />
+                  <div className="absolute top-[14px] left-[2px] w-1 h-1 bg-black" />
                   {/* Feet */}
-                  <div className="absolute bottom-0 left-3 w-3 h-2 bg-green-400 rounded-b" />
-                  <div className="absolute bottom-0 right-3 w-3 h-2 bg-green-400 rounded-b" />
+                  <div className="absolute bottom-0 left-3 w-3 h-2 bg-green-400" />
+                  <div className="absolute bottom-0 right-3 w-3 h-2 bg-green-400" />
+                  {/* Tail */}
+                  <div className="absolute top-7 right-0 w-2 h-1 bg-green-400" />
                 </div>
-                {/* Laptop */}
-                <div className="w-12 h-7 bg-gray-300 rounded-t-sm relative -mt-1">
-                  <div className="absolute inset-[3px] bg-blue-500 rounded-sm flex items-center justify-center">
-                    <span className="text-[5px] text-white font-bold">&lt;/&gt;</span>
-                  </div>
-                </div>
-                <div className="w-14 h-1 bg-gray-400 rounded-b" />
                 <p className="text-[10px] text-muted mt-1 font-bold">Donnie</p>
               </div>
 
@@ -504,25 +497,28 @@ export default function Home() {
             </p>
               </div>
 
-              {/* Pixel Ed - blocky person */}
+              {/* Pixel Ed - hard corners, blocky person */}
               <div className="hidden md:flex flex-col items-center flex-shrink-0 w-20">
-                <div className="relative w-14 h-16">
+                <div className="relative w-14 h-16" style={{ imageRendering: "pixelated" }}>
                   {/* Hair */}
-                  <div className="absolute top-0 left-3 w-8 h-3 bg-gray-900 rounded-t-lg" />
+                  <div className="absolute top-0 left-3 w-8 h-3 bg-gray-900" />
                   {/* Head */}
-                  <div className="absolute top-2 left-3 w-8 h-7 bg-amber-700 rounded" />
+                  <div className="absolute top-2 left-3 w-8 h-6 bg-amber-700" />
                   {/* Eyes */}
-                  <div className="absolute top-4 left-4 w-1.5 h-1.5 bg-white rounded-full" />
-                  <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-white rounded-full" />
-                  <div className="absolute top-[17px] left-[17px] w-1 h-1 bg-black rounded-full" />
-                  <div className="absolute top-[17px] right-[17px] w-1 h-1 bg-black rounded-full" />
+                  <div className="absolute top-3 left-4 w-2 h-2 bg-white" />
+                  <div className="absolute top-3 right-4 w-2 h-2 bg-white" />
+                  <div className="absolute top-[14px] left-[18px] w-1 h-1 bg-black" />
+                  <div className="absolute top-[14px] right-[18px] w-1 h-1 bg-black" />
                   {/* Smile */}
-                  <div className="absolute top-[22px] left-5 w-4 h-1 bg-white rounded-b" />
+                  <div className="absolute top-[20px] left-5 w-4 h-1 bg-white" />
                   {/* Body */}
-                  <div className="absolute top-9 left-2 w-10 h-7 bg-primary rounded-t" />
+                  <div className="absolute top-8 left-2 w-10 h-6 bg-primary" />
                   {/* Arms */}
-                  <div className="absolute top-10 left-[-1px] w-3 h-4 bg-primary rounded-l" />
-                  <div className="absolute top-10 right-[-1px] w-3 h-4 bg-primary rounded-r" />
+                  <div className="absolute top-9 left-0 w-2 h-4 bg-primary" />
+                  <div className="absolute top-9 right-0 w-2 h-4 bg-primary" />
+                  {/* Legs */}
+                  <div className="absolute bottom-0 left-3 w-3 h-2 bg-gray-700" />
+                  <div className="absolute bottom-0 right-3 w-3 h-2 bg-gray-700" />
                 </div>
                 <p className="text-[10px] text-muted mt-1 font-bold">Ed</p>
                 <p className="text-[8px] text-muted/60">(people stuff)</p>
