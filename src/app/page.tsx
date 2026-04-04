@@ -5,7 +5,7 @@ import { useState } from "react";
 const faqItems = [
   {
     q: "What kind of sites?",
-    a: 'Personal brands, service businesses, portfolios. Not e-commerce. We\'re not building <a href="https://www.youtube.com/watch?v=5roJBI6-R8Q" target="_blank" rel="noopener noreferrer" class="text-primary underline hover:no-underline">Death Stars</a>. We\'re building one-page websites (three-page websites if you get on the <a href="#" onclick="window.scrollTo({top:0,behavior:\'smooth\'});return false" class="text-primary underline hover:no-underline">waitlist</a> NOW!).',
+    a: 'Personal brands, service businesses, portfolios. Not e-commerce. We\'re not building <a href="https://www.youtube.com/watch?v=5roJBI6-R8Q" target="_blank" rel="noopener noreferrer" class="text-primary underline hover:no-underline">Death Stars</a>. We\'re building one-page websites (three-page websites if you get on the waitlist NOW!).',
   },
   {
     q: "What about hosting fees?",
