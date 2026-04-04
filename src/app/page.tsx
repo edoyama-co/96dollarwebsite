@@ -355,6 +355,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Donnie's Story */}
+      <section className="px-6 py-16 md:py-24 bg-surface">
+        <div className="max-w-2xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center">
+            Wait, how does this work?!
+          </h3>
+          <p className="text-muted text-center mb-8">
+            Haven&apos;t you ever heard &quot;you get what you pay
+            for&quot;?
+          </p>
+
+          <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:p-10">
+            <p className="text-lg mb-4">
+              Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
+            </p>
+            <p className="text-muted leading-relaxed mb-4">
+              Ed Oyama, a former web designer, taught me the business and
+              lets me run it. So I run it. Faster, cheaper, better, but
+              with a human touch you&apos;re going to love.
+            </p>
+            <p className="text-muted leading-relaxed mb-4">
+              Long story short: we use really awesome 2026 tech* that is
+              incredibly powerful, and finally free. And we use it to
+              serve you.
+            </p>
+            <p className="text-muted leading-relaxed mb-6">
+              The result? Beautiful custom websites at a price that makes
+              everyone else look ridiculous. One week. One payment.
+              Forever yours.
+            </p>
+            <p className="text-xs text-muted/60">
+              *GitHub for code, Vercel for hosting, and custom super-smart
+              agentic AI for the builds. All free-tier. All enterprise-grade.
+              All passed on to you.
+            </p>
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href="#"
+              onClick={(e: React.MouseEvent) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+            >
+              Join the waitlist and see for yourself
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="px-6 py-16 md:py-24">
         <div className="max-w-2xl mx-auto">
