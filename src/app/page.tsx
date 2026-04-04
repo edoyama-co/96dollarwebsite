@@ -223,7 +223,11 @@ export default function Home() {
       <section className="px-6 py-20 md:py-32 bg-foreground text-background overflow-hidden">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-16">
-            Three ways to get a website.
+            In 2026, there&apos;s three ways to get a website.
+            <br />
+            <span className="text-primary">
+              Only one makes $$ sense.
+            </span>
           </h3>
 
           {/* Visual comparison - 3 cards with CSS website icons */}
@@ -256,8 +260,10 @@ export default function Home() {
                 <li>Watch 47 YouTube tutorials</li>
                 <li>Crash it 68 times</li>
                 <li>Finally give up at 2am</li>
-                <li className="text-red-400/60">+ $276/yr hosting</li>
               </ul>
+              <p className="text-red-400/70 font-bold text-sm mt-3">
+                Annual hosting: $276
+              </p>
             </div>
 
             {/* US - center, big, glowing */}
@@ -336,8 +342,10 @@ export default function Home() {
                 <li>Wait 4-8 weeks</li>
                 <li>Pay $3K+ for a 5-page site</li>
                 <li>Then $150/hr for changes</li>
-                <li className="text-yellow-400/60">+ $240-720/yr hosting</li>
               </ul>
+              <p className="text-yellow-400/70 font-bold text-sm mt-3">
+                Annual hosting: $240-720
+              </p>
             </div>
           </div>
 
