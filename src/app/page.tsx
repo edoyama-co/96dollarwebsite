@@ -5,7 +5,7 @@ import { useState } from "react";
 const faqItems = [
   {
     q: "What kind of sites?",
-    a: 'Personal brands, service businesses, portfolios. Not e-commerce. We\'re not building <a href="https://www.youtube.com/watch?v=5roJBI6-R8Q" target="_blank" rel="noopener noreferrer" class="text-primary underline hover:no-underline">Death Stars</a>. We\'re building one-page websites.',
+    a: 'Personal brands, service businesses, portfolios. Not e-commerce. We\'re not building <a href="https://www.youtube.com/watch?v=5roJBI6-R8Q" target="_blank" rel="noopener noreferrer" class="text-primary underline hover:no-underline">Death Stars</a>. We\'re building one-page websites (three-page websites if you get on the <a href="#" onclick="window.scrollTo({top:0,behavior:\'smooth\'});return false" class="text-primary underline hover:no-underline">waitlist</a> NOW!).',
   },
   {
     q: "What about hosting fees?",
@@ -474,7 +474,12 @@ export default function Home() {
             Stop paying for hosting.
           </p>
           <p className="text-muted mb-6">
-            Your website shouldn&apos;t cost more than your lunch. Every month.
+            Your website shouldn&apos;t cost more than your lunch. Every
+            month.
+            <br />
+            <span className="text-sm text-muted/80 italic">
+              (And now you can afford the guacamole, so go crazy fam.)
+            </span>
           </p>
           <a
             href="#"
@@ -482,7 +487,7 @@ export default function Home() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background font-semibold px-8 py-3.5 hover:opacity-90 transition"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary text-white font-semibold px-8 py-3.5 hover:bg-primary-dark transition"
           >
             Join the Waitlist ↑
           </a>
@@ -496,6 +501,20 @@ export default function Home() {
             &copy; {new Date().getFullYear()} Edo Design Co. All rights
             reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <a href="/terms" className="hover:text-foreground transition">
+              Terms
+            </a>
+            <a href="/privacy" className="hover:text-foreground transition">
+              Privacy
+            </a>
+            <a
+              href="mailto:ed@edodesign.co"
+              className="hover:text-foreground transition"
+            >
+              Contact
+            </a>
+          </div>
           <p>Built by Donnie 🐢</p>
         </div>
       </footer>
