@@ -89,9 +89,30 @@ export default function Home() {
     <main className="flex-1">
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-20 pb-16 md:pt-32 md:pb-24">
-        {/* Fun background blobs */}
-        <div className="absolute top-[-120px] right-[-80px] w-[400px] h-[400px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-100px] left-[-60px] w-[300px] h-[300px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+        {/* Animated background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Large gradient blobs that float */}
+          <div className="absolute top-[-120px] right-[-80px] w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl animate-blob" />
+          <div className="absolute bottom-[-100px] left-[-60px] w-[400px] h-[400px] rounded-full bg-accent/15 blur-3xl animate-blob animation-delay-2000" />
+          <div className="absolute top-[40%] left-[50%] w-[350px] h-[350px] rounded-full bg-yellow-300/10 blur-3xl animate-blob animation-delay-4000" />
+
+          {/* Floating shapes */}
+          <div className="absolute top-[15%] left-[10%] w-16 h-16 rounded-xl bg-primary/20 rotate-12 animate-float" />
+          <div className="absolute top-[25%] right-[15%] w-10 h-10 rounded-full bg-accent/25 animate-float animation-delay-1000" />
+          <div className="absolute bottom-[20%] left-[20%] w-8 h-8 rounded-lg bg-yellow-400/20 rotate-45 animate-float animation-delay-3000" />
+          <div className="absolute top-[60%] right-[10%] w-12 h-12 rounded-xl bg-primary/15 -rotate-12 animate-float animation-delay-2000" />
+          <div className="absolute top-[10%] left-[45%] w-6 h-6 rounded-full bg-accent/20 animate-float animation-delay-4000" />
+          <div className="absolute bottom-[35%] right-[30%] w-14 h-14 rounded-2xl bg-primary/10 rotate-[30deg] animate-float animation-delay-1500" />
+
+          {/* Grid pattern overlay */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `radial-gradient(circle, currentColor 1px, transparent 1px)`,
+              backgroundSize: "40px 40px",
+            }}
+          />
+        </div>
 
         <div className="relative max-w-3xl mx-auto text-center">
           {/* Badge */}
@@ -192,6 +213,39 @@ export default function Home() {
           <span>
             <strong className="text-foreground">1 week</strong> to launch
           </span>
+        </div>
+      </section>
+
+      {/* The Math */}
+      <section className="px-6 py-16 md:py-24 bg-foreground text-background">
+        <div className="max-w-2xl mx-auto text-center">
+          <h3 className="text-2xl md:text-3xl font-bold mb-10">
+            Do the math.
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-6">
+              <p className="text-sm uppercase tracking-wider text-white/50 mb-2">
+                Squarespace
+              </p>
+              <p className="text-4xl font-bold text-red-400 mb-1">$828</p>
+              <p className="text-sm text-white/60">
+                $23/mo for 3 years. Same basic site.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white/5 border border-primary/40 p-6 ring-2 ring-primary/20">
+              <p className="text-sm uppercase tracking-wider text-primary mb-2">
+                Us
+              </p>
+              <p className="text-4xl font-bold text-primary mb-1">$96</p>
+              <p className="text-sm text-white/60">
+                Once. Forever. You own it.
+              </p>
+            </div>
+          </div>
+          <p className="text-white/50 text-sm">
+            That&apos;s $732 back in your pocket over 3 years. For the same
+            website.
+          </p>
         </div>
       </section>
 
