@@ -219,70 +219,130 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Math */}
-      <section className="px-6 py-16 md:py-24 bg-foreground text-background">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl md:text-3xl font-bold mb-10">
+      {/* The Math - Visual Comparison */}
+      <section className="px-6 py-20 md:py-32 bg-foreground text-background overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-2xl md:text-3xl font-bold mb-16">
             Three ways to get a website.
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {/* DIY */}
-            <div className="rounded-2xl bg-white/5 border border-white/10 p-6 text-left">
-              <p className="text-sm uppercase tracking-wider text-white/40 mb-2">
+
+          {/* Visual comparison - 3 cards with CSS website icons */}
+          <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4 mb-12">
+            {/* DIY - tilted left, drifting */}
+            <div className="md:-rotate-6 md:-translate-y-4 md:translate-x-4 opacity-60 hover:opacity-80 transition-all duration-500 flex-shrink-0">
+              {/* CSS Website Icon */}
+              <div className="w-48 h-32 mx-auto mb-4 rounded-lg border-2 border-red-400/30 bg-white/5 relative overflow-hidden">
+                <div className="h-4 bg-red-400/20 flex items-center gap-1 px-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-400/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-400/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-400/40" />
+                </div>
+                <div className="p-3 space-y-2">
+                  <div className="h-2 bg-red-400/15 rounded w-3/4" />
+                  <div className="h-2 bg-red-400/10 rounded w-full" />
+                  <div className="h-2 bg-red-400/10 rounded w-5/6" />
+                  <div className="h-6 bg-red-400/10 rounded w-1/2 mt-2 flex items-center justify-center">
+                    <span className="text-[6px] text-red-400/40">ERROR 404</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm uppercase tracking-wider text-white/40 mb-1">
                 Do it yourself
               </p>
-              <p className="text-3xl font-bold text-red-400 mb-3">
+              <p className="text-2xl font-bold text-red-400 mb-2">
                 &quot;Free&quot;
               </p>
-              <ul className="text-sm text-white/50 space-y-2">
+              <ul className="text-xs text-white/40 space-y-1 max-w-[200px] mx-auto">
                 <li>Watch 47 YouTube tutorials</li>
                 <li>Crash it 68 times</li>
                 <li>Finally give up at 2am</li>
-                <li>Still paying $23/mo for hosting</li>
-                <li className="text-red-400/80">
-                  Cost: your sanity + $276/yr
-                </li>
+                <li className="text-red-400/60">+ $276/yr hosting</li>
               </ul>
             </div>
 
-            {/* Traditional */}
-            <div className="rounded-2xl bg-white/5 border border-white/10 p-6 text-left">
-              <p className="text-sm uppercase tracking-wider text-white/40 mb-2">
+            {/* US - center, big, glowing */}
+            <div className="relative z-10 md:scale-110 hover:md:scale-115 transition-transform duration-500 flex-shrink-0 cursor-default">
+              {/* Glow effect */}
+              <div className="absolute inset-0 -m-8 bg-primary/20 blur-3xl rounded-full" />
+
+              <div className="relative">
+                {/* CSS Website Icon - bigger, glowing */}
+                <div className="w-64 h-44 mx-auto mb-5 rounded-xl border-2 border-primary/50 bg-white/10 relative overflow-hidden shadow-[0_0_40px_rgba(255,107,53,0.15)]">
+                  <div className="h-5 bg-primary/20 flex items-center gap-1 px-2">
+                    <div className="w-2 h-2 rounded-full bg-primary/50" />
+                    <div className="w-2 h-2 rounded-full bg-accent/50" />
+                    <div className="w-2 h-2 rounded-full bg-yellow-400/50" />
+                  </div>
+                  <div className="p-4 space-y-2">
+                    <div className="h-3 bg-primary/25 rounded w-2/3" />
+                    <div className="h-2 bg-white/10 rounded w-full" />
+                    <div className="h-2 bg-white/10 rounded w-5/6" />
+                    <div className="flex gap-2 mt-3">
+                      <div className="h-8 bg-primary/30 rounded flex-1 flex items-center justify-center">
+                        <span className="text-[7px] text-primary/80">HERO</span>
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="h-4 bg-accent/15 rounded flex-1" />
+                      <div className="h-4 bg-accent/15 rounded flex-1" />
+                      <div className="h-4 bg-accent/15 rounded flex-1" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full mx-auto w-fit mb-3">
+                  BEST VALUE
+                </div>
+                <p className="text-sm uppercase tracking-wider text-primary mb-1">
+                  Us
+                </p>
+                <p className="text-4xl font-bold text-primary mb-3">$96</p>
+                <ul className="text-sm text-white/70 space-y-1.5 max-w-[240px] mx-auto">
+                  <li>Custom designed for you</li>
+                  <li>Live in one week</li>
+                  <li>Free hosting forever</li>
+                  <li>$19 edits for life</li>
+                </ul>
+                <p className="text-primary font-bold text-xl mt-4">
+                  Annual hosting: $0
+                </p>
+              </div>
+            </div>
+
+            {/* Hire a Designer - tilted right, drifting */}
+            <div className="md:rotate-6 md:-translate-y-4 md:-translate-x-4 opacity-60 hover:opacity-80 transition-all duration-500 flex-shrink-0">
+              {/* CSS Website Icon */}
+              <div className="w-48 h-32 mx-auto mb-4 rounded-lg border-2 border-yellow-400/30 bg-white/5 relative overflow-hidden">
+                <div className="h-4 bg-yellow-400/20 flex items-center gap-1 px-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-yellow-400/40" />
+                </div>
+                <div className="p-3 space-y-2">
+                  <div className="h-2 bg-yellow-400/15 rounded w-3/4" />
+                  <div className="h-2 bg-yellow-400/10 rounded w-full" />
+                  <div className="h-2 bg-yellow-400/10 rounded w-5/6" />
+                  <div className="h-2 bg-yellow-400/10 rounded w-2/3" />
+                  <div className="h-2 bg-yellow-400/10 rounded w-4/5 mt-1" />
+                </div>
+              </div>
+              <p className="text-sm uppercase tracking-wider text-white/40 mb-1">
                 Hire a designer
               </p>
-              <p className="text-3xl font-bold text-yellow-400 mb-3">
+              <p className="text-2xl font-bold text-yellow-400 mb-2">
                 $3,000+
               </p>
-              <ul className="text-sm text-white/50 space-y-2">
+              <ul className="text-xs text-white/40 space-y-1 max-w-[200px] mx-auto">
                 <li>Wait 4-8 weeks</li>
                 <li>Pay $3K+ for a 5-page site</li>
-                <li>Then $240-720/yr for hosting</li>
-                <li>Then $150/hr for every change</li>
-              </ul>
-            </div>
-
-            {/* Us */}
-            <div className="rounded-2xl bg-white/5 border border-primary/40 p-6 text-left ring-2 ring-primary/20 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                BEST VALUE
-              </div>
-              <p className="text-sm uppercase tracking-wider text-primary mb-2">
-                Us
-              </p>
-              <p className="text-3xl font-bold text-primary mb-3">$96</p>
-              <ul className="text-sm text-white/50 space-y-2">
-                <li className="text-white/80">Custom designed for you</li>
-                <li className="text-white/80">Live in one week</li>
-                <li className="text-white/80">Free hosting forever</li>
-                <li className="text-white/80">$19 edits for life</li>
-                <li className="text-primary font-medium text-lg mt-2">
-                  Annual hosting cost: $0
-                </li>
+                <li>Then $150/hr for changes</li>
+                <li className="text-yellow-400/60">+ $240-720/yr hosting</li>
               </ul>
             </div>
           </div>
+
           <p className="text-white/40 text-sm">
-            Same website. Wildly different price. You do the math.
+            Same website. Wildly different price.
           </p>
         </div>
       </section>
