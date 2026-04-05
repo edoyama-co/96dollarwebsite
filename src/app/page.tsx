@@ -482,7 +482,7 @@ export default function Home() {
                   ))}
                 </div>
                 {/* Window title */}
-                <span className="mx-auto text-xs font-bold text-[#333] z-10">How It Works</span>
+                <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-[#333] z-10">How It Works</span>
               </div>
               {/* Window content */}
               <div className="p-8 md:py-10 md:px-12 bg-[#FFFDF7] border-t border-[#999]">
@@ -534,7 +534,7 @@ export default function Home() {
                   <div key={i} className="h-[1px] bg-[#A0A0A0]/40 mb-[2px]" />
                 ))}
               </div>
-              <span className="mx-auto text-xs font-bold text-[#333] z-10">How It Works</span>
+              <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-[#333] z-10">How It Works</span>
             </div>
             {/* Window content */}
             <div className="p-6 bg-[#FFFDF7] border-t border-[#999]">
