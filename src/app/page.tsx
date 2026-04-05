@@ -336,7 +336,7 @@ export default function Home() {
               </p>
               <ul className="text-xs text-white/40 space-y-1 max-w-[200px] mx-auto">
                 <li>Watch 47 YouTube tutorials</li>
-                <li><a href="https://www.youtube.com/watch?v=XEFZ30Cvdnc" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline">Crash it 67 times</a></li>
+                <li>Crash it <a href="https://www.youtube.com/watch?v=XEFZ30Cvdnc" target="_blank" rel="noopener noreferrer" className="hover:text-white/70 transition-colors underline">67</a> times</li>
                 <li>Finally give up at 2am</li>
               </ul>
               <p className="text-red-400/70 font-bold text-sm mt-3">
