@@ -310,8 +310,8 @@ export default function Home() {
 
           {/* Visual comparison - 3 cards with CSS website icons */}
           <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-4 mb-12">
-            {/* DIY - tilted left, drifting */}
-            <div className="md:animate-drift-left opacity-60 hover:opacity-80 transition-opacity duration-500 flex-shrink-0">
+            {/* DIY - tilted left, static angle */}
+            <div className="md:rotate-[-15deg] opacity-60 hover:opacity-80 transition-opacity duration-500 flex-shrink-0">
               {/* CSS Website Icon */}
               <div className="w-48 h-32 mx-auto mb-4 rounded-lg border-2 border-red-400/30 bg-white/5 relative overflow-hidden">
                 <div className="h-4 bg-red-400/20 flex items-center gap-1 px-2">
@@ -393,8 +393,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hire a Designer - tilted right, drifting */}
-            <div className="md:animate-drift-right opacity-60 hover:opacity-80 transition-opacity duration-500 flex-shrink-0">
+            {/* Hire a Designer - tilted right, static angle */}
+            <div className="md:rotate-[15deg] opacity-60 hover:opacity-80 transition-opacity duration-500 flex-shrink-0">
               {/* CSS Website Icon */}
               <div className="w-48 h-32 mx-auto mb-4 rounded-lg border-2 border-yellow-400/30 bg-white/5 relative overflow-hidden">
                 <div className="h-4 bg-yellow-400/20 flex items-center gap-1 px-2">
@@ -465,9 +465,80 @@ export default function Home() {
               <p className="text-[9px] text-muted/50">(the brains)</p>
             </div>
 
-            {/* Text card */}
-            <div className="rounded-2xl bg-background border border-foreground/10 p-8 md:py-10 md:px-12 max-w-lg w-full shadow-sm">
-              <p className="text-lg font-medium mb-4">
+            {/* Text card - Classic Mac OS 9 window */}
+            <div className="max-w-lg w-full shadow-md border-2 border-[#808080] rounded-sm overflow-hidden bg-white">
+              {/* Title bar - Mac OS 9 style */}
+              <div className="h-6 flex items-center px-2 relative" style={{ background: 'linear-gradient(180deg, #E8E8E8 0%, #C0C0C0 40%, #D0D0D0 60%, #B8B8B8 100%)' }}>
+                {/* Traffic light dots */}
+                <div className="flex items-center gap-1.5 z-10">
+                  <div className="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]" />
+                  <div className="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#DEA123]" />
+                  <div className="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]" />
+                </div>
+                {/* Horizontal ridges texture */}
+                <div className="absolute inset-0 flex flex-col justify-center px-16 pointer-events-none">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="h-[1px] bg-[#A0A0A0]/40 mb-[2px]" />
+                  ))}
+                </div>
+                {/* Window title */}
+                <span className="mx-auto text-xs font-bold text-[#333] z-10">How It Works</span>
+              </div>
+              {/* Window content */}
+              <div className="p-8 md:py-10 md:px-12 bg-[#FFFDF7] border-t border-[#999]">
+                <p className="text-lg font-medium mb-4 text-foreground">
+                  Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
+                </p>
+                <p className="text-muted leading-relaxed mb-4">
+                  Ed Oyama, a former web designer, taught me the business and
+                  lets me run it for him. So I run it, baby. Faster, cheaper,
+                  better, but with a human touch you&apos;re going to love.
+                </p>
+                <p className="text-muted leading-relaxed mb-4">
+                  Long story short: we use really awesome 2026 tech* that is
+                  incredibly powerful, and finally free. And we use it to
+                  serve you.
+                </p>
+                <p className="text-muted leading-relaxed mb-6">
+                  The result? Beautiful custom websites at a price that makes
+                  everyone else look ridiculous. One week. One payment.
+                  Forever yours.
+                </p>
+                <p className="text-[11px] text-muted/50 leading-relaxed">
+                  *GitHub for code, Vercel for hosting, and custom super-smart
+                  agentic AI for the builds. All free-tier. All enterprise-grade.
+                  All passed on to you.
+                </p>
+              </div>
+            </div>
+
+            {/* Ed - right, slight tilt opposite direction */}
+            <div className="flex flex-col items-center flex-shrink-0 -ml-6 z-10">
+              <img src="/images/ed-pixel.png" alt="Ed on skateboard" className="w-36 h-36 object-contain drop-shadow-md rotate-3" style={{ imageRendering: "pixelated" }} />
+              <p className="text-xs text-muted mt-2 font-bold tracking-wide uppercase">Ed</p>
+              <p className="text-[9px] text-muted/50">(people stuff)</p>
+            </div>
+          </div>
+
+          {/* Mobile text card - Classic Mac OS 9 window */}
+          <div className="md:hidden shadow-md border-2 border-[#808080] rounded-sm overflow-hidden bg-white">
+            {/* Title bar - Mac OS 9 style */}
+            <div className="h-6 flex items-center px-2 relative" style={{ background: 'linear-gradient(180deg, #E8E8E8 0%, #C0C0C0 40%, #D0D0D0 60%, #B8B8B8 100%)' }}>
+              <div className="flex items-center gap-1.5 z-10">
+                <div className="w-3 h-3 rounded-full bg-[#FF5F57] border border-[#E0443E]" />
+                <div className="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#DEA123]" />
+                <div className="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29]" />
+              </div>
+              <div className="absolute inset-0 flex flex-col justify-center px-16 pointer-events-none">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="h-[1px] bg-[#A0A0A0]/40 mb-[2px]" />
+                ))}
+              </div>
+              <span className="mx-auto text-xs font-bold text-[#333] z-10">How It Works</span>
+            </div>
+            {/* Window content */}
+            <div className="p-6 bg-[#FFFDF7] border-t border-[#999]">
+              <p className="text-lg font-medium mb-4 text-foreground">
                 Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
               </p>
               <p className="text-muted leading-relaxed mb-4">
@@ -491,40 +562,6 @@ export default function Home() {
                 All passed on to you.
               </p>
             </div>
-
-            {/* Ed - right, slight tilt opposite direction */}
-            <div className="flex flex-col items-center flex-shrink-0 -ml-6 z-10">
-              <img src="/images/ed-pixel.png" alt="Ed on skateboard" className="w-36 h-36 object-contain drop-shadow-md rotate-3" style={{ imageRendering: "pixelated" }} />
-              <p className="text-xs text-muted mt-2 font-bold tracking-wide uppercase">Ed</p>
-              <p className="text-[9px] text-muted/50">(people stuff)</p>
-            </div>
-          </div>
-
-          {/* Mobile text card */}
-          <div className="md:hidden rounded-2xl bg-background border border-foreground/10 p-6">
-            <p className="text-lg font-medium mb-4">
-              Yeah, well. I&apos;m Donnie, and I don&apos;t play that.
-            </p>
-            <p className="text-muted leading-relaxed mb-4">
-              Ed Oyama, a former web designer, taught me the business and
-              lets me run it for him. So I run it, baby. Faster, cheaper,
-              better, but with a human touch you&apos;re going to love.
-            </p>
-            <p className="text-muted leading-relaxed mb-4">
-              Long story short: we use really awesome 2026 tech* that is
-              incredibly powerful, and finally free. And we use it to
-              serve you.
-            </p>
-            <p className="text-muted leading-relaxed mb-6">
-              The result? Beautiful custom websites at a price that makes
-              everyone else look ridiculous. One week. One payment.
-              Forever yours.
-            </p>
-            <p className="text-[11px] text-muted/50 leading-relaxed">
-              *GitHub for code, Vercel for hosting, and custom super-smart
-              agentic AI for the builds. All free-tier. All enterprise-grade.
-              All passed on to you.
-            </p>
           </div>
 
           <div className="mt-8 text-center">
